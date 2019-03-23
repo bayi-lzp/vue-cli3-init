@@ -1,6 +1,12 @@
 <template>
 <div class="com">
-    <h1 class="com-item">首页</h1>
+    <!--<h1 class="com-item">首页</h1>-->
+    <mt-header title="标题过长会隐藏后面的内容啊哈哈哈哈">
+        <router-link to="/" slot="left">
+            <mt-button icon="back">返回</mt-button>
+        </router-link>
+        <mt-button icon="more" slot="right"></mt-button>
+    </mt-header>
 </div>
 </template>
 
@@ -12,11 +18,10 @@
 
 <style lang="scss" scoped>
 .com{
-    font-size: px2rem(12);
-    width: px2rem(1920);
+    /*font-size: px2rem(12);*/
     height: 20%;
-    color: $red;
-    background-color: #222222;
+    // color: $red;
+    // background-color: #222222;
     @include flex();
     .com-item{
         padding: px2rem(12);
