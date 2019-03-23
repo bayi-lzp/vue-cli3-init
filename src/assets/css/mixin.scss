@@ -1,0 +1,18 @@
+/* define mixin */
+
+/* flex
+ * @include flex(center, center);
+ */
+@mixin flex($justifyContent: flex-start, $alignItems: flex-start) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+}
+/* ellipsis
+ * @include ellipsis;
+ */
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

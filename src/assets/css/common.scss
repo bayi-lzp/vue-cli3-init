@@ -1,0 +1,6 @@
+/**
+  转化px为rem。$base-font-size = 设计稿尺寸/10
+*/
+@function px2rem($px, $base-font-size: 37.5) {
+  @return ($px/$base-font-size)*1rem
+}

@@ -1,0 +1,44 @@
+html,body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, pre, form, fieldset, legend, input, button, textarea, p, blockquote, table, th, td, menu {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Arial, "Microsoft YaHei",'微软雅黑','Avenir', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: -moz-hidden-unscrollable;
+}
+ul, ol, menu {
+  list-style: none
+}
+
+fieldset, img {
+  border: none
+}
+
+img, object, select, input, textarea, button {
+  vertical-align: middle
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+i {
+  font-style: normal;
+}
