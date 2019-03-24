@@ -17,7 +17,15 @@
 
 <script>
     export default {
-        name: "index"
+        name: "index",
+        data(){
+            return{
+
+            }
+        },
+        created(){
+            console.log(1111);
+        }
     }
 </script>
 

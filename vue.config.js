@@ -33,6 +33,7 @@ module.exports = {
     // config.optimization.splitChunks({
     //   chunks: 'all'
     // })
+    // 用cdn方式引入
     config.externals({
       'vue': 'Vue',
       'vuex': 'Vuex',
@@ -55,5 +56,5 @@ module.exports = {
               `
       }
     }
-  },
+  }
 }
