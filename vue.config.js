@@ -73,6 +73,7 @@ module.exports = {
   },
   // 引入全局变量
   css: {
+    extract: true,
     loaderOptions: {
       // pass options to sass-loader
       sass: {
