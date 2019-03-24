@@ -1,8 +1,26 @@
 const path = require('path');
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+
 function resolve (dir) {
   return path.join(__dirname, './', dir)
 }
-
+ // 压缩js
+const compress = new CompressionWebpackPlugin(
+    {
+      filename: info => {
+        return `${info.path}.gz${info.query}`
+      },
+      algorithm: 'gzip',
+      threshold: 10240,
+      test: new RegExp(
+          '\\.(' +
+          ['js'].join('|') +
+          ')$'
+      ),
+      minRatio: 0.8,
+      deleteOriginalAssets: false
+    }
+)
 module.exports = {
   assetsDir: 'assets',
   publicPath: './',
@@ -13,7 +31,18 @@ module.exports = {
         target: 'http://127.0.0.1:8080',
         changeOrigin: true
       }
+    },
+    before(app, server) {
+      app.get(/.*.(js)$/, (req, res, next) => {
+        req.url = req.url + '.gz';
+        res.set('Content-Encoding', 'gzip');
+        next();
+      })
     }
+  },
+  // 压缩代码
+  configureWebpack: {
+    plugins: [compress]
   },
   // 配置
   chainWebpack: (config)=>{
@@ -38,7 +67,7 @@ module.exports = {
       'vue': 'Vue',
       'vuex': 'Vuex',
       'vue-router': 'VueRouter',
-      'mint-ui': 'mint-ui',
+      'mint-ui': 'MINT',  // 需用MINT
       'axios': 'axios'
     })
   },

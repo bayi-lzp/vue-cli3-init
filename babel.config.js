@@ -6,7 +6,7 @@ if(['production', 'prod'].includes(process.env.NODE_ENV)) {
 module.exports = {
   presets: [["@vue/app",{"useBuiltIns": "entry"}]],
   plugins: [
-      plugins,
+      // plugins,
     [
       "component",
       {
