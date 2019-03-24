@@ -8,10 +8,6 @@ module.exports = {
   publicPath: './',
   lintOnSave: true, // 是否开启编译时是否不符合eslint提示
   devServer: {
-    host: '0.0.0.0',
-    port: 8000,
-    https: false,
-    hotOnly: false,
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:8080',
@@ -19,8 +15,9 @@ module.exports = {
       }
     }
   },
-  // 配置别名
+  // 配置
   chainWebpack: (config)=>{
+    // 配置别名
     config.resolve.alias
         .set('@', resolve('src'))
         .set('assets',resolve('src/assets'))
@@ -30,7 +27,21 @@ module.exports = {
         .set('static',resolve('src/static'))
         .set('store',resolve('src/store'))
         .set('views',resolve('src/views'))
+    // 压缩代码
+    config.optimization.minimize(true);
+    // 分割代码
+    // config.optimization.splitChunks({
+    //   chunks: 'all'
+    // })
+    config.externals({
+      'vue': 'Vue',
+      'vuex': 'Vuex',
+      'vue-router': 'VueRouter',
+      'mint-ui': 'mint-ui',
+      'axios': 'axios'
+    })
   },
+  // 引入全局变量
   css: {
     loaderOptions: {
       // pass options to sass-loader
