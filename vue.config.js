@@ -35,7 +35,7 @@ module.exports = {
       }
     },
     before(app, server) {
-      app.get(/.*.(js)$/, (req, res, next) => {
+      app.get(/.*.(js) | .*.*.(js)$/, (req, res, next) => {
         req.url = req.url + '.gz';
         res.set('Content-Encoding', 'gzip');
         next();
@@ -48,6 +48,8 @@ module.exports = {
   },
   // 配置
   chainWebpack: (config)=>{
+    // 修复HMR
+    // config.resolve.symlinks(true);
     // 配置别名
     config.resolve.alias
         .set('@', resolve('src'))
@@ -61,9 +63,9 @@ module.exports = {
     // 压缩代码
     config.optimization.minimize(true);
     // 分割代码
-    config.optimization.splitChunks({
-      chunks: 'all'
-    })
+    // config.optimization.splitChunks({
+    //   chunks: 'all'
+    // })
     // 用cdn方式引入
     config.externals({
       'vue': 'Vue',
