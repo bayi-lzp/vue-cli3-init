@@ -1,6 +1,6 @@
 const path = require('path');
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-
+const baseUrl = process.env.NODE_ENV === 'production' ? '/newmail-api/order/' : ''
 function resolve (dir) {
   return path.join(__dirname, './', dir)
 }
@@ -23,9 +23,11 @@ const compress = new CompressionWebpackPlugin(
 )
 module.exports = {
   assetsDir: 'assets',
-  publicPath: './',
+  publicPath: baseUrl,
   lintOnSave: true, // 是否开启编译时是否不符合eslint提示
   devServer: {
+    host: '0.0.0.0',  // 解决在局域网下无法访问
+    port: 8080,
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:8080',
