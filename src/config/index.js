@@ -2,17 +2,17 @@
 const modeUrlObj = {
   // 生产环境
   'production': {
-    baseURL: 'http://172.17.71.40:9091/pro/',
+    baseURL: 'http://XXXX:9091/pro/',
     authBaseURL: ''
   },
   // 开发环境
   'development': {
-    baseURL: 'http://172.17.71.40:9091/dev/',
+    baseURL: 'http://XXXX:9091/dev/',
     authBaseURL: ''
   },
   // 测试环境
   'test': {
-    baseURL: 'http://172.17.71.40:9091/test/',
+    baseURL: 'http://XXXX:9091/test/',
     authBaseURL: ''
   }
 }
